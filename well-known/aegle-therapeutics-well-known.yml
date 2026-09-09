@@ -1,0 +1,97 @@
+generated: '2026-09-09'
+method: probed
+source: https://aegletherapeutics.com/
+note: >-
+  Every named /.well-known/ path was probed on all three hosts the record knows
+  (aegletherapeutics.com, www.aegletherapeutics.com and the asset host
+  cdn.aegletherapeutics.com). All returned HTTP 404 serving the WordPress theme's
+  HTML 404 page. NO WellKnown and NO SecurityTxt pointer is wired in apis.yml,
+  because this file records an ABSENCE, not a served surface. There are no API
+  baseURL hosts and no OpenAPI servers[] hosts to probe — Aegle publishes no API.
+hosts:
+- host: aegletherapeutics.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: www.aegletherapeutics.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: cdn.aegletherapeutics.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+
+# Not a /.well-known/ document, kept out of hosts[].documents[] deliberately so it is
+# never mistaken for a well-known catalog hit. Recorded because it is a REAL, served,
+# provider-published AI-consent surface (the consent_identity dimension).
+content_signals:
+  path: /robots.txt
+  url: https://aegletherapeutics.com/robots.txt
+  status: 200
+  file: aegle-therapeutics-robots.txt
+  method: probed
+  provider: cloudflare-managed-content-signals
+  signals:
+    search: 'yes'
+    ai-train: 'no'
+    use: reference
+    ai-input: unset
+  eu_dsm_reservation: true
+  blocked_agents:
+  - Amazonbot
+  - Applebot-Extended
+  - Bytespider
+  - CCBot
+  - ClaudeBot
+  - CloudflareBrowserRenderingCrawler
+  - GPTBot
+  - Google-Extended
+  - meta-externalagent
+  note: >-
+    Aegle serves Cloudflare's managed Content-Signal block plus a Yoast block. Content is
+    allowed for search indexing and for AI reference use, but ai-train=no, and nine named
+    AI crawlers are fully disallowed. The general User-agent:* rule allows crawling, which
+    is what this pass used; no AI-crawler user agent was impersonated.

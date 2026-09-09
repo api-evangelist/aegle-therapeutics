@@ -1,10 +1,18 @@
 aid: aegle-therapeutics
 name: Aegle Therapeutics
-description: 'Aegle Therapeutics is a company surfaced via the API Evangelist harvest backlog (source:
-  secondary-market) and added to the network as a stub for full-pipeline profiling.'
+description: 'Aegle Therapeutics Corporation is a privately held, clinical-stage regenerative
+  medicine company developing extracellular vesicle (EV) therapy — a cell-free therapeutic
+  composite of EVs, including exosomes, isolated from allogeneic bone marrow-derived
+  mesenchymal stem cells using its proprietary EV harvesting technology. Its lead candidate,
+  AGLE-102, is in a Phase 1/2 clinical study for Recessive Dystrophic Epidermolysis Bullosa
+  (RDEB) and other severe dermatological disorders with significant unmet medical need.
+  The company publishes a seven-page WordPress marketing site and no developer program,
+  API, SDK or machine-readable specification of any kind.'
 url: https://raw.githubusercontent.com/api-evangelist/aegle-therapeutics/refs/heads/main/apis.yml
+image: https://cdn.aegletherapeutics.com/app/uploads/2023/01/cropped-aegle-icon-1-270x270.png
 x-type: company
 x-source: harvest:secondary-market
+x-harvest-source: https://www.nasdaqprivatemarket.com/
 x-tier: stub
 x-tier-reason: harvest
 specificationVersion: '0.20'
@@ -12,6 +20,14 @@ created: '2026-09-09'
 modified: '2026-09-09'
 tags:
 - Company
+- Biotechnology
+- Life Sciences
+- Regenerative Medicine
+- Clinical Stage
+- Pharmaceuticals
+- Rare Disease
+- Health
+position: Producing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +36,47 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://aegletherapeutics.com/
+- type: About
+  url: https://aegletherapeutics.com/company/
+- type: Contact
+  url: https://aegletherapeutics.com/contact/
+- type: Newsroom
+  url: https://aegletherapeutics.com/news/
+- type: PrivacyPolicy
+  url: https://aegletherapeutics.com/privacy-policy/
+- type: LinkedIn
+  url: https://www.linkedin.com/company/aegletherapeutics
+- type: DomainSecurity
+  url: security/aegle-therapeutics-domain-security.yml
+- type: ContentSignal
+  url: well-known/aegle-therapeutics-robots.txt
+- type: LLMsTxt
+  url: llms/aegle-therapeutics-llms.txt
+
+x-enrichment:
+  date: '2026-09-09'
+  status: minimal
+  artifacts_added: 4
+  pass: local-v3
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    Aegle Therapeutics is a clinical-stage extracellular-vesicle drug developer whose entire
+    public surface is a seven-page WordPress marketing site (home, company, EV therapy,
+    pipeline, news, contact, policies) — its sitemap lists no developer, API, docs or
+    pricing page, and the only machine-readable endpoint on the domain is the site's own
+    /wp-json/ CMS route, which returns 401 rest_authentication_error to anonymous callers.
+  evidence:
+  - url: https://aegletherapeutics.com/page-sitemap.xml
+    status: 200
+  - url: https://aegletherapeutics.com/openapi.json
+    status: 404
+  - url: https://aegletherapeutics.com/llms.txt
+    status: 404
+  - url: https://aegletherapeutics.com/.well-known/agent-card.json
+    status: 404
+  - url: https://aegletherapeutics.com/wp-json/
+    status: 401
+  checked: '2026-09-09'
